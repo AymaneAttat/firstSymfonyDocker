@@ -1,0 +1,33 @@
+{% extends "base.html.twig" %}
+{% block body %}
+
+<!--{ { include("partials/nav.html.twig", {message: "Index page"}) }}--> 
+<h1>Update a Course</h1>
+<!--{ form(formCourse) }}-->
+{{ form_start(formCourse) }}
+    <div>
+        {{ form_label(formCourse.category, "Select a category", {'label_attr':{'class': 'form-label'}}) }}
+        {{ form_widget(formCourse.category, {'attr': {"class": "form-control"}}) }}
+        <div class="text-danger">{{ form_errors(formCourse.category) }}</div>
+    </div>
+    <div>
+        {{ form_label(formCourse.title, "Tape your title", {'label_attr':{'class': 'form-label'}}) }}
+        {{ form_widget(formCourse.title, {'attr': {"class": "form-control"}}) }}<!-- widget pour input-->
+        <div class="error">{{ form_errors(formCourse.title) }}</div>
+    </div>
+    <div>
+        {{ form_label(formCourse.description, "Tape discription", {'label_attr':{'class': 'form-label'}}) }}
+        {{ form_widget(formCourse.description, {'attr': {"class": "form-control","style": "color:blue"}}) }}
+        <div class="error">{{ form_errors(formCourse.description) }}</div>
+    </div>
+    <div>
+        {{ form_label(formCourse.taggedBy, "Select one or many tags", {'label_attr':{'class': 'form-label'}}) }}
+        {{ form_widget(formCourse.taggedBy, {'attr': {"class": "form-control"}}) }}
+        <div class="text-danger">{{ form_errors(formCourse.taggedBy) }}</div>
+    </div>
+    <button class="btn btn-success" type="submit">Update</button>
+    <!-- { form_row(formCourse.description) }} -->
+{{ form_end(formCourse) }}
+
+{% endblock %}
+{% block title %}Create a new course{% endblock %}

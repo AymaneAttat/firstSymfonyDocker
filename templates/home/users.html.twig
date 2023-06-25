@@ -1,0 +1,17 @@
+{% extends "base.html.twig" %}
+{% block body %}
+<!--{ { include("partials/nav.html.twig", {message: "Users list page"}) }}--> 
+{% if users | length > 0 %}
+{% for key, user in users %}
+    <div>
+        <p>{{user.id}}) <u>{{ user.email }}</u></p>
+        {% for role in user.roles %}
+            <p><i><small>{{role}}</small></i></p>
+        {% endfor %}
+    </div>
+{% endfor %}
+{% else %}
+    <h3>No user yet!</h3>
+{% endif %}
+{% endblock %}
+{% block title %}{% endblock %}

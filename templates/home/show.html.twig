@@ -1,0 +1,13 @@
+{% extends "base.html.twig" %}
+{% block body %}
+{{ include("partials/nav.html.twig", {message: "Show page"}) }}
+<!-- <div>
+    <h1>{ article.title }}</h1>
+    <p>image <img width="300px" src="{ article.image }}" alt="{ article.title }}"></p>
+</div><br><hr> -->
+<div>
+    <h1>{{ course.title }}</h1>
+    <p>{{ course.description }}</p>
+</div>
+{% endblock %}
+{% block title %}{{ course.title }}{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "base.html.twig" %}
+{% block body %}
+
+<!--{ { include("partials/nav.html.twig", {message: "Create page"}) }}--> 
+<!--{ form(formCourse) }}-->
+<h1 class="center">Create a new course</h1>
+<div class="row">
+    <div class="col-md-6 mx-auto">
+        {{ form_start(formCourse, {attr: {'novalidate': 'novalidate'}}) }}
+            <div>
+                {{ form_label(formCourse.category, "Select a category", {'label_attr':{'class': 'form-label'}}) }}
+                {{ form_widget(formCourse.category, {'attr': {"class": "form-control"}}) }}
+                <div class="text-danger">{{ form_errors(formCourse.category) }}</div>
+            </div>
+            <div>
+                {{ form_label(formCourse.title, "Tape your title", {'label_attr':{'class': 'form-label'}}) }}
+                {{ form_widget(formCourse.title, {'attr': {"class": "form-control"}}) }}<!-- widget pour input-->
+                <div class="text-danger">{{ form_errors(formCourse.title) }}</div>
+            </div>
+            <div>
+                {{ form_label(formCourse.description, "Tape discription", {'label_attr':{'class': 'form-label'}}) }}
+                {{ form_widget(formCourse.description, {'attr': {"class": "form-control", "style": "color:blue"}}) }}
+                <div class="text-danger">{{ form_errors(formCourse.description) }}</div>
+            </div>
+            <div>
+                {{ form_label(formCourse.taggedBy, "Select one or many tags", {'label_attr':{'class': 'form-label'}}) }}
+                {{ form_widget(formCourse.taggedBy, {'attr': {"class": "form-control"}}) }}
+                <div class="text-danger">{{ form_errors(formCourse.taggedBy) }}</div>
+            </div>
+            <button type="submit" class="mt-3 btn btn-primary">Save</button>
+            <!-- { form_row(formCourse.description) }} -->
+        {{ form_end(formCourse) }}
+    </div>
+</div>
+
+{% endblock %}
+{% block title %}Create a new article{% endblock %}

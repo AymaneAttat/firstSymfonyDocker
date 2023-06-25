@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello LoginController!{% endblock %}
+
+{% block body %}
+<!--{include("partials/nav.html.twig", {message: "Login page"}) }}-->
+<div class="row">
+    <div class="col-md-12">
+        <h1>Welcome</h1>
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                {% if error %}
+                    <div class="alert alert-danger" role="alert">
+                        <strong>Error : </strong> {{error.getMessage}}
+                    </div>
+                {% endif %}
+                <form action="{{ path('app_login') }}" method="post">
+                    <div class="form-group">
+                        <label for="username" class="form-label">Email</label>
+                        <input type="text" name="_username" id="username" class="form-control" value="{{ lastUserName }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" name="_password" id="password" class="form-control">
+                    </div>
+                    <input type="hidden" name="_target_path" value="/home">
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
